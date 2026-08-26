@@ -25,93 +25,203 @@ const points = [
   },
 ];
 
+export default function HomePage() {
+  return (
+    <div>
 
-export default function HomePage() 
-{
-  return (<div>
+      {/* ================= HERO ================= */}
 
-   
-    <div style={{height: 600, position: 'relative', overflow: 'visible'}}>
+      <section
+        className="position-relative"
+        style={{
+          minHeight: "clamp(620px, 80vh, 700px)",
+          overflow: "visible",
+        }}
+      >
+        <Image
+          src="/images/homepic.png"
+          alt="BBL Team"
+          fill
+          priority
+          style={{
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+        />
 
-      <Image
-        src="/images/homepic.png"
-        alt="BBL Team"
-        fill
-        priority
-        style={{objectFit: 'cover', objectPosition:'center'}}
-      />
+        {/* Overlay */}
+        <div
+          className="position-absolute top-0 start-0 w-100 h-100"
+          style={{
+            background:
+              "linear-gradient(90deg, #000d, #0007, transparent)",
+          }}
+        />
 
-      <div style={{ position: 'absolute', inset: 0,background: `linear-gradient(90deg, #000d, #0005, transparent)`}} />
+        {/* Hero Content */}
+        <div className="container h-100 position-relative">
+          <div className="row align-items-center h-100">
 
-      <div className="container h-100 position-relative">
-        <div className="row align-items-center h-100">
-          <div className="col-lg-6 text-white">
+            <div className="col-12 col-md-9 col-lg-7 col-xl-6 text-white">
 
-            <small>TOGETHER WE CAN ──</small>
+              <small
+                className="fw-bold"
+                style={{
+                  fontSize: "clamp(10px, 1.5vw, 13px)",
+                  letterSpacing: "1.5px",
+                }}
+              >
+                TOGETHER WE CAN ──
+              </small>
 
-            <h1 style={{fontSize:65,fontWeight:800,lineHeight:.95, margin:'15px 0'  }}>
-              BUILD A<br />
-              <span style={{color: '#e21b23'}}>BETTER BIHAR</span>
-            </h1>
+              <h1
+                className="fw-bold my-3"
+                style={{
+                  fontSize: "clamp(42px, 7vw, 70px)",
+                  lineHeight: 0.95,
+                }}
+              >
+                BUILD A
+                <br />
+                <span style={{ color: "#e21b23" }}>
+                  BETTER BIHAR
+                </span>
+              </h1>
 
-            <p style={{width:470,lineHeight:1.7,color:'#ddd'}}>
-              BBL is a youth-driven organization working for social
-              welfare, awareness, education and community empowerment.
-            </p>
+              <p
+                className="mb-4"
+                style={{
+                  maxWidth: "470px",
+                  lineHeight: 1.7,
+                  color: "#ddd",
+                  fontSize: "clamp(13px, 1.5vw, 15px)",
+                }}
+              >
+                BBL is a youth-driven organization working for social
+                welfare, awareness, education and community empowerment.
+              </p>
 
-            <div className="d-flex gap-3">
-              <button className="btn btn-danger">
-                Explore Our Events →
-              </button>
+              <div className="d-flex flex-column flex-sm-row gap-3">
 
-              <button className="btn btn-outline-light">
-                Join Our Mission
-              </button>
+                <button className="btn btn-danger px-4 py-2">
+                  Explore Our Events →
+                </button>
+
+                <button className="btn btn-outline-light px-4 py-2">
+                  Join Our Mission
+                </button>
+
+              </div>
+
             </div>
+          </div>
+        </div>
+
+        {/* ================= STATS ================= */}
+
+        <div
+          className="container position-absolute start-50 translate-middle-x px-3"
+          style={{
+            bottom: "-65px",
+          }}
+        >
+          <div className="row bg-white rounded-4 shadow overflow-hidden">
+
+            {stats.map(([icon, number, label], index) => (
+              <div
+                className="col-6 col-lg-3 p-0"
+                key={label}
+              >
+                <div
+                  className={`d-flex align-items-center gap-2 gap-sm-3 px-3 px-sm-4 py-3 ${
+                    index < 3 ? "border-end" : ""
+                  }`}
+                  style={{
+                    minHeight: "110px",
+                    borderColor: "#eee",
+                  }}
+                >
+
+                  <i
+                    className={`bi ${icon} flex-shrink-0`}
+                    style={{
+                      fontSize: "clamp(22px, 3vw, 30px)",
+                      color: "#c71922",
+                    }}
+                  />
+
+                  <div>
+                    <h3
+                      className="mb-0 fw-bold"
+                      style={{
+                        fontSize: "clamp(20px, 3vw, 28px)",
+                      }}
+                    >
+                      {number}
+                    </h3>
+
+                    <small
+                      className="text-muted"
+                      style={{
+                        fontSize: "clamp(9px, 1.3vw, 12px)",
+                      }}
+                    >
+                      {label}
+                    </small>
+                  </div>
+
+                </div>
+              </div>
+            ))}
 
           </div>
         </div>
-      </div>
-
-      {/* Stats */}
-      <div className="container" style={{position:'absolute',bottom:-55,left:0,right:0}}>
-        <div className="row bg-white rounded-4 shadow">
-
-          {stats.map(([icon, number, label]) => (
-            <div className="col-6 col-lg-3" key={label}>
-              <div style={{height:110,padding:'20px 25px', borderRadius:'1px solid #eee'}} className="d-flex align-items-center gap-3">
-                <i className={`bi ${icon}`}  style={{fontSize:28,color:' #c71922'}} />
-
-                <div>
-                  <h3 style={{margin:0,fontSize:28,fontWeight:700}}>{number}</h3>
-                  <small style={{color:'#666'}}>{label}</small>
-                </div>
-              </div>
-            </div>
-          ))}
-
-        </div>
-      </div>
-
-    </div>
+      </section>
 
 
-    
-      <div className="container m-5 p-5">
+      {/* ================= ABOUT ================= */}
+
+      <section className="container py-5 my-4 my-lg-5 px-3 px-lg-4">
+
         <div className="row align-items-center g-5">
 
-          {/* LEFT */}
-          <div className="col-lg-4">
+          {/* LEFT CONTENT */}
 
-            <span style={{color:'#9e1720',fontSize:12,fontWeight:800,letterSpacing:1.5}}>ABOUT US</span>
+          <div className="col-12 col-lg-4">
 
-            <h1 style={{fontSize:38,lineHeight:1.15,fontWeight:800,margin:'12px 0 20px'}}>
+            <span
+              style={{
+                color: "#9e1720",
+                fontSize: "12px",
+                fontWeight: 800,
+                letterSpacing: "1.5px",
+              }}
+            >
+              ABOUT US
+            </span>
+
+            <h2
+              className="fw-bold mt-2 mb-3"
+              style={{
+                fontSize: "clamp(30px, 4vw, 40px)",
+                lineHeight: 1.15,
+              }}
+            >
               We Are A Youth-Driven
               <br />
-              <span style={{color:'#9e1720'}}>Social Organization</span>
-            </h1>
 
-            <p style={{color:'#666',fontSize:14,lineHeight:1.8}}>
+              <span style={{ color: "#9e1720" }}>
+                Social Organization
+              </span>
+            </h2>
+
+            <p
+              className="text-secondary"
+              style={{
+                fontSize: "14px",
+                lineHeight: 1.8,
+              }}
+            >
               BBL (Bihar Based League) is a non-profit organization
               working for social welfare, awareness, education, health,
               environment and community empowerment. We believe in the
@@ -119,40 +229,85 @@ export default function HomePage()
               change in society.
             </p>
 
-            <div style={{display:'flex',alignItems:'center',gap:15,margin:'25px 0',color:'#555'}}>
-              <span style={{fontSize:35,color:'#222'}}>〰</span>
-              <b style={{fontSize:13}}>BBL Team</b>
+            <div className="d-flex align-items-center gap-3 my-4">
+
+              <span
+                style={{
+                  fontSize: "35px",
+                  color: "#222",
+                }}
+              >
+                〰
+              </span>
+
+              <b style={{ fontSize: "13px" }}>
+                BBL Team
+              </b>
+
             </div>
 
-            <button  className="btn btn-danger px-4 py-2">
+            <button className="btn btn-danger px-4 py-2">
               Know More About Us
-              <i className="bi bi-arrow-right ms-2" />
+              <i className="bi bi-arrow-right ms-2"></i>
             </button>
 
           </div>
 
 
           {/* CENTER IMAGE */}
-          <div className="col-lg-4">
 
-            <div style={{ height: 440, position: 'relative', borderRadius: 20, overflow: 'visible'}}>
+          <div className="col-12 col-md-6 col-lg-4">
+
+            <div
+              className="position-relative mx-auto"
+              style={{
+                width: "100%",
+                maxWidth: "380px",
+                height: "clamp(350px, 55vw, 440px)",
+                borderRadius: "20px",
+              }}
+            >
 
               <Image
                 src="/images/tree.png"
                 alt="BBL Team"
                 fill
-                style={{objectFit:'cover',borderRadius:20 }}
+                style={{
+                  objectFit: "cover",
+                  borderRadius: "20px",
+                }}
               />
-              
 
-              {/* Floating card */}
-              <div style={{position: 'absolute', bottom: -20, left: -35, width: 125, padding:18, borderRadius: 15 ,background: 'white', color: '#a71922', fontSize: 11,boxShadow:' 0 8px 25px #0002',textAlign:'center'}}>
-                <i style={{display:'block',color:'#a71922',fontSize:28,marginBlock:8}} className="bi bi-people" />
+              {/* Floating Card */}
+
+              <div
+                className="position-absolute bg-white shadow text-center d-none d-sm-block"
+                style={{
+                  bottom: "-20px",
+                  left: "-25px",
+                  width: "125px",
+                  padding: "18px",
+                  borderRadius: "15px",
+                  color: "#a71922",
+                  fontSize: "11px",
+                }}
+              >
+
+                <i
+                  className="bi bi-people d-block"
+                  style={{
+                    color: "#a71922",
+                    fontSize: "28px",
+                    margin: "8px 0",
+                  }}
+                />
+
                 <span>
                   Building Better
                   <br />
                   Communities
                 </span>
+
               </div>
 
             </div>
@@ -160,22 +315,59 @@ export default function HomePage()
           </div>
 
 
-          {/* RIGHT */}
-          <div className="col-lg-4">
+          {/* RIGHT CONTENT */}
 
-            <div className="mission-list">
+          <div className="col-12 col-md-6 col-lg-4">
 
-              {points.map((item, index) => (
+            <div>
 
-                <div style={{display:'flex',gap:18,position:'relative',paddingBottom:35}} key={item.title}>
+              {points.map((item) => (
 
-                  <div style={{width:58,height:58,borderRadius:50,background:'#fff0f0',color:'#a71922',display:'flex',alignItems:'center',justifyContent:'center',fontSize:24}}>
-                    <i className={`bi ${item.icon}`} />
+                <div
+                  className="d-flex gap-3 mb-4"
+                  key={item.title}
+                >
+
+                  {/* Icon */}
+
+                  <div
+                    className="flex-shrink-0 d-flex align-items-center justify-content-center"
+                    style={{
+                      width: "58px",
+                      height: "58px",
+                      borderRadius: "50%",
+                      background: "#fff0f0",
+                      color: "#a71922",
+                      fontSize: "24px",
+                    }}
+                  >
+                    <i className={`bi ${item.icon}`}></i>
                   </div>
 
+                  {/* Text */}
+
                   <div>
-                    <h3 style={{fontSize:16,fontWeight:700,margin:'5px 0'}}>{item.title}</h3>
-                    <p style={{color:'#777',fontSize:12,lineHeight:1.6,maxWidth:220,margin:0}}>{item.text}</p>
+
+                    <h3
+                      className="fw-bold mb-1"
+                      style={{
+                        fontSize: "16px",
+                      }}
+                    >
+                      {item.title}
+                    </h3>
+
+                    <p
+                      className="text-secondary mb-0"
+                      style={{
+                        fontSize: "12px",
+                        lineHeight: 1.6,
+                        maxWidth: "240px",
+                      }}
+                    >
+                      {item.text}
+                    </p>
+
                   </div>
 
                 </div>
@@ -187,56 +379,127 @@ export default function HomePage()
           </div>
 
         </div>
-      </div>
+
+      </section>
 
 
+      {/* ================= IMPACT ================= */}
+
+      <section
+        className="py-4"
+        style={{
+          background:
+            "linear-gradient(90deg, #420007e8, #78000be8)",
+          color: "white",
+        }}
+      >
+
+        <div className="container">
+
+          <div className="row align-items-center">
+
+            {/* Heading */}
+
+            <div className="col-12 col-lg-3 mb-4 mb-lg-0">
+
+              <small
+                className="fw-bold"
+                style={{
+                  fontSize: "10px",
+                  letterSpacing: "1px",
+                }}
+              >
+                OUR IMPACT
+              </small>
+
+              <h2
+                className="fw-bold mb-0"
+                style={{
+                  fontSize: "20px",
+                  lineHeight: 1.1,
+                }}
+              >
+                Making A Difference
+                <br />
+
+                <span style={{ color: "#ed1c24" }}>
+                  In Numbers
+                </span>
+              </h2>
+
+            </div>
 
 
-      <div style={{padding:'25px 0',background:'linear-gradient(90deg, #420007e8, #78000be8)',color: 'white' }}>
-        <div  className="container">
-        <div className="row align-items-center">
+            {/* Stats */}
 
-          {/* Heading */}
-          <div className="col-lg-3 mb-3 mb-lg-0">
-            <small style={{fontSize:10,fontWeight:700,letterSpacing:1}}>OUR IMPACT</small>
-            <h2 style={{fontSize:20,fontWeight:700,lineHeight:1,margin:'3px 0 0'}}>
-              Making A Difference
-              <br />
-              <span style={{color:"#ed1c24"}}>In Numbers</span>
-            </h2>
-          </div>
+            <div className="col-12 col-lg-9">
 
-          {/* Stats */}
-          <div className="col-lg-9">
-            <div className="row">
+              <div className="row g-0">
 
-              {stats.map(([icon, number, label]) => (
-                <div className="col-6 col-md-3" key={label}>
-                  <div style={{height:60,display:'flex',alignItems:'center',gap:13,borderLeft:'1px solid #ffffff40',paddingLeft:25}}>
+                {stats.map(([icon, number, label], index) => (
 
-                    <i className={`bi ${icon}`} style={{color:'#ed1c24',fontSize:24}} />
+                  <div
+                    className="col-6 col-md-3"
+                    key={label}
+                  >
 
-                    <div>
-                      <h3 style={{margin:0,fontSize:20,fontWeight:700}}>{number}</h3>
-                      <p style={{margin:'2px 0 0',color:'#ddd',fontSize:10}}>{label}</p>
+                    <div
+                      className={`d-flex align-items-center gap-2 gap-sm-3 px-2 px-md-3 py-3 ${
+                        index !== 0 ? "border-start" : ""
+                      }`}
+                      style={{
+                        minHeight: "65px",
+                        borderColor: "#ffffff40",
+                      }}
+                    >
+
+                      <i
+                        className={`bi ${icon}`}
+                        style={{
+                          color: "#ed1c24",
+                          fontSize: "24px",
+                        }}
+                      />
+
+                      <div>
+
+                        <h3
+                          className="mb-0 fw-bold"
+                          style={{
+                            fontSize: "20px",
+                          }}
+                        >
+                          {number}
+                        </h3>
+
+                        <p
+                          className="mb-0"
+                          style={{
+                            color: "#ddd",
+                            fontSize: "10px",
+                          }}
+                        >
+                          {label}
+                        </p>
+
+                      </div>
+
                     </div>
 
                   </div>
-                </div>
-              ))}
+
+                ))}
+
+              </div>
 
             </div>
+
           </div>
 
         </div>
-      </div>
 
-     
+      </section>
 
     </div>
-
-
-
-
-  </div>);
+  );
 }

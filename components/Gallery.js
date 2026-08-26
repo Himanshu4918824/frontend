@@ -6,6 +6,7 @@ export default function Gallery() {
     { image: "aboutpic.png" },
     { image: "aboutpic.png" },
     { image: "aboutpic.png" },
+     { image: "aboutpic.png" },
   ];
 
   return (
