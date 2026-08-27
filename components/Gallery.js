@@ -3,30 +3,21 @@
 export default function Gallery() {
   const galleryData = [
     { image: "aboutpic.png" },
+    { image: "homepic.png" },
+    { image: "tree.png" },
     { image: "aboutpic.png" },
-    { image: "aboutpic.png" },
-    { image: "aboutpic.png" },
-     { image: "aboutpic.png" },
+    { image: "homepic.png" },
   ];
 
   return (
     <section
-      style={{
-        padding: "45px 0",
-        background: "#fff",
-      }}
+      className="py-5"
+      style={{ background: "#fff" }}
     >
       <div className="container">
 
         {/* HEADER */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
-            marginBottom: "18px",
-          }}
-        >
+        <div className="d-flex justify-content-between align-items-end mb-3">
 
           {/* LEFT */}
           <div>
@@ -44,8 +35,8 @@ export default function Gallery() {
             </div>
 
             <h2
+              className="mb-0"
               style={{
-                margin: 0,
                 fontSize: "27px",
                 fontWeight: 700,
                 lineHeight: 1.2,
@@ -59,22 +50,19 @@ export default function Gallery() {
             </h2>
           </div>
 
-
           {/* VIEW GALLERY */}
           <a
-            href="/gallery"
+            href="#"
+            className="text-decoration-none d-flex align-items-center gap-2"
             style={{
-              textDecoration: "none",
               color: "#8f1729",
               fontSize: "12px",
               fontWeight: 600,
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
               marginBottom: "3px",
             }}
           >
-            View Full Gallery
+            <span>View Full Gallery</span>
+
             <span
               style={{
                 fontSize: "18px",
@@ -84,39 +72,35 @@ export default function Gallery() {
               →
             </span>
           </a>
-
         </div>
 
-
         {/* GALLERY */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(5, 1fr)",
-            gap: "8px",
-          }}
-        >
+        <div className="row g-2">
 
           {galleryData.map((item, index) => (
             <div
+              className="col-6 col-md-4 col-lg"
               key={index}
-              style={{
-                width: "100%",
-                height: "155px",
-                borderRadius: "10px",
-                overflow: "hidden",
-              }}
             >
-              <img
-                src={`/images/${item.image}`}
-                alt={`BBL Gallery ${index + 1}`}
+              <div
                 style={{
                   width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  display: "block",
+                  height: "155px",
+                  borderRadius: "10px",
+                  overflow: "hidden",
                 }}
-              />
+              >
+                <img
+                  src={`/images/${item.image}`}
+                  alt={`BBL Gallery ${index + 1}`}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    display: "block",
+                  }}
+                />
+              </div>
             </div>
           ))}
 

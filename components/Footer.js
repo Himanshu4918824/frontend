@@ -53,7 +53,7 @@ const Footer = () => {
                 {/* Replace with your actual logo */}
                 <div className="brand-logo">
                   <div className="logo-circle">
-                    <span>◉</span>
+                    <img src="images/logo.png"/>
                   </div>
 
                   <div>
@@ -70,19 +70,19 @@ const Footer = () => {
                 {/* Social Media */}
                 <div className="social-links">
                   <a href="#" aria-label="Facebook">
-                    <i className="bi bi-facebook"></i>
+                    <i className="bi bi-facebook" style={{color:'#fff',fontSize:16}}></i>
                   </a>
 
                   <a href="#" aria-label="Instagram">
-                    <i className="bi bi-instagram"></i>
+                    <i className="bi bi-instagram" style={{color:'#fff',fontSize:16}}></i>
                   </a>
 
                   <a href="#" aria-label="Twitter">
-                    <i className="bi bi-twitter"></i>
+                    <i className="bi bi-twitter" style={{color:'#fff',fontSize:16}}></i>
                   </a>
 
                   <a href="#" aria-label="YouTube">
-                    <i className="bi bi-youtube"></i>
+                    <i className="bi bi-youtube" style={{color:'#fff',fontSize:16}}></i>
                   </a>
                 </div>
 
@@ -107,11 +107,11 @@ const Footer = () => {
                 </li>
 
                 <li>
-                  <Link href="/events">Events</Link>
+                  <Link href="#">Events</Link>
                 </li>
 
                 <li>
-                  <Link href="/gallery">Gallery</Link>
+                  <Link href="#">Gallery</Link>
                 </li>
               </ul>
 
@@ -127,25 +127,25 @@ const Footer = () => {
 
               <ul className="footer-links">
                 <li>
-                  <Link href="/programs/awareness">
+                  <Link href="#">
                     Awareness
                   </Link>
                 </li>
 
                 <li>
-                  <Link href="/programs/education">
+                  <Link href="#">
                     Education
                   </Link>
                 </li>
 
                 <li>
-                  <Link href="/programs/health">
+                  <Link href="#">
                     Health
                   </Link>
                 </li>
 
                 <li>
-                  <Link href="/programs/environment">
+                  <Link href="#">
                     Environment
                   </Link>
                 </li>
@@ -171,7 +171,7 @@ const Footer = () => {
               <div className="contact-item">
                 <i className="bi bi-telephone"></i>
                 <span>
-                  +91 91234 56789
+                  +91 91234 xxxxx
                 </span>
               </div>
 

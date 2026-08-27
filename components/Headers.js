@@ -1,48 +1,48 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-export default function Header() 
-{
-
-   useEffect(() => {
-    import("bootstrap/dist/js/bootstrap.bundle.min.js");
-  }, []);
-
+  const handleMenuClick = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <header>
 
-      {/* Top Bar */}
+      {/* ================= TOP BAR ================= */}
       <div className="topbar">
         <div className="container">
           <div className="row align-items-center">
 
-            <div className="col-lg-8">
-              <div className="d-flex gap-4 align-items-center">
+            {/* Contact Information */}
+            <div className="col-12 col-lg-8">
+              <div className="top-contact">
 
                 <span>
-                  <i className="bi bi-telephone-fill me-2"></i>
+                  <i className="bi bi-telephone-fill"></i>
                   +91 91234 xxxxxx
                 </span>
 
                 <span>
-                  <i className="bi bi-envelope-fill me-2"></i>
+                  <i className="bi bi-envelope-fill"></i>
                   info@bbl.org
                 </span>
 
                 <span>
-                  <i className="bi bi-geo-alt-fill me-2"></i>
-                  Patna, Bihar, India
+                  <i className="bi bi-geo-alt-fill"></i>
+                  Patna, Bihar
                 </span>
 
               </div>
             </div>
 
-            <div className="col-lg-4">
+            {/* Follow Us - Desktop Only */}
+            <div className="col-lg-4 d-none d-lg-block">
               <div className="social-links">
 
                 <span>Follow Us :</span>
@@ -71,55 +71,63 @@ export default function Header()
       </div>
 
 
-      {/* Main Navbar */}
+      {/* ================= MAIN NAVBAR ================= */}
       <nav className="navbar navbar-expand-lg main-navbar">
-
         <div className="container">
 
-          {/* Logo */}
-          <Link href="/" className="navbar-brand logo-box">
+          {/* LOGO */}
+          <Link
+            href="/"
+            className="navbar-brand logo-box"
+            onClick={handleMenuClick}
+          >
             <Image
-             src="/images/logo.png"
-             alt="BBL Logo"
-             width={75}
-             height={75}
-             className="logo-icon"
-             loading="eager"
+              src="/images/logo.png"
+              alt="BBL Logo"
+              width={60}
+              height={60}
+              className="logo-icon"
+              priority
             />
 
-             <div className="logo-text">
-               <div className="logo-title">BBL</div>
-                <div className="logo-subtitle">BIHAR BASED LEAGUE</div>
-             </div>
-</Link>
+            <div className="logo-text">
+              <div className="logo-title">
+                BBL
+              </div>
+
+              <div className="logo-subtitle">
+                BIHAR BASED LEAGUE
+              </div>
+            </div>
+          </Link>
 
 
-          {/* Mobile Menu Button */}
+          {/* MOBILE BUTTON */}
           <button
             className="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNavbar"
-            aria-controls="mainNavbar"
-            aria-expanded="false"
             aria-label="Toggle navigation"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
 
 
-          {/* Menu */}
+          {/* MENU */}
           <div
-            className="collapse navbar-collapse"
-            id="mainNavbar"
+            className={`collapse navbar-collapse ${
+              menuOpen ? "show" : ""
+            }`}
           >
 
-            <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+            <ul className="navbar-nav ms-auto align-items-lg-center">
 
               <li className="nav-item">
                 <Link
                   href="/"
                   className="nav-link active"
+                  onClick={handleMenuClick}
                 >
                   Home
                 </Link>
@@ -129,6 +137,7 @@ export default function Header()
                 <Link
                   href="/about"
                   className="nav-link"
+                  onClick={handleMenuClick}
                 >
                   About Us
                 </Link>
@@ -138,6 +147,7 @@ export default function Header()
                 <Link
                   href="/events"
                   className="nav-link"
+                  onClick={handleMenuClick}
                 >
                   Events
                 </Link>
@@ -147,15 +157,17 @@ export default function Header()
                 <Link
                   href="/gallery"
                   className="nav-link"
+                  onClick={handleMenuClick}
                 >
                   Gallery
                 </Link>
               </li>
 
-              <li className="nav-item ms-lg-3">
+              <li className="nav-item">
                 <Link
                   href="/contact"
                   className="join-btn"
+                  onClick={handleMenuClick}
                 >
                   Join Us
                   <i className="bi bi-arrow-right"></i>
@@ -167,7 +179,6 @@ export default function Header()
           </div>
 
         </div>
-
       </nav>
 
     </header>

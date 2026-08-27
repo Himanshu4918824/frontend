@@ -111,7 +111,8 @@
 
 .social-links {
   display: flex;
-  gap: 7px;
+  gap: 5px;
+  text-align: left;
 }
 
 .social-links a {
