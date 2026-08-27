@@ -3,6 +3,7 @@ import "./globals.css";
 import Headers from "@/components/Headers";
 import "../components/Footer.css";
 import Footer from "@/components/Footer";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 
 export default function RootLayout({ children }) {
