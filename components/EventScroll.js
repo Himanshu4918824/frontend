@@ -10,7 +10,8 @@ const Slider = dynamic(() => import("react-slick"), {
   ssr: false,
 });
 
-export default function EventScroll() {
+export default function EventScroll() 
+{
   const sliderRef = useRef(null);
 
   var data = [

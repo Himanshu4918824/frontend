@@ -54,11 +54,11 @@ export default function HomePage() {
                 TOGETHER WE CAN ──
               </small>
 
-              <h1 className="fw-bold my-3" style={{fontSize: "clamp(42px, 7vw, 70px)", lineHeight: 0.95}}>
-                BUILD A
+              <h1 className="fw-bold my-3" style={{fontSize: "clamp(40px, 4vw, 60px)", lineHeight: 0.95}}>
+                CAN BIHAR ONCE AGAIN HELP STRENGTHEN
                 <br />
                 <span style={{ color: "#e21b23" }}>
-                  BETTER BIHAR
+                  INDIAN DEMOCRACIES?
                 </span>
               </h1>
 
@@ -127,7 +127,7 @@ export default function HomePage() {
               ABOUT US
             </span>
 
-            <h2 className="fw-bold mt-2 mb-3" style={{fontSize: "clamp(30px, 4vw, 40px)",lineHeight: 1.15,}}>
+            <h2 className="fw-bold mt-2 mb-3" style={{fontSize: "clamp(30px, 4vw, 40px)",lineHeight: 1.15, fontFamily: "Playfair Display"}}>
               We Are A Youth-Driven
               <br />
 

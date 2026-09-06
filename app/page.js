@@ -1,7 +1,9 @@
 
-import EventScroll from "@/components/EventScroll";
+//import EventScroll from "@/components/EventScroll";
 import HomePage from "./homepage/page";
 import Gallery from "@/components/Gallery";
+import UpcomingEvents from "@/components/UpcomingEvent";
+import WhyBihar from "@/components/WhyBihar";
 
 export default function Home() 
 {
@@ -13,12 +15,19 @@ export default function Home()
       </div>
 
       <div>
-        <EventScroll/>
+        <WhyBihar/>
+      </div>
+
+      <div>
+        {/*<EventScroll/>*/}
+        <UpcomingEvents/>
       </div>
 
       <div>
         <Gallery/>
       </div>
+
+      
 
     </div>
     

@@ -96,7 +96,7 @@ export default function Header() {
               </div>
 
               <div className="logo-subtitle">
-                BIHAR BASED LEAGUE
+                BIHAR BACHAYEGA LOKTANTRA
               </div>
             </div>
           </Link>
