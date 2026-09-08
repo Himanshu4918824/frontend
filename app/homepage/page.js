@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const stats = [
   ["bi-people", "50+", "Events Organized"],
-  ["bi-heart", "10,000+", "Lives Impacted"],
-  ["bi-person", "100+", "Volunteers"],
-  ["bi-geo-alt", "15+", "Districts Reached"],
+  ["bi-heart", "38", "District Consulted"],
+  ["bi-person", "12k+", "Citizen Voice"],
+  ["bi-geo-alt", "6", "Partner Universities"],
 ];
 
 const points = [
@@ -25,7 +25,8 @@ const points = [
   },
 ];
 
-export default function HomePage() {
+export default function HomePage() 
+{
   return (
     <div>
 
@@ -63,18 +64,17 @@ export default function HomePage() {
               </h1>
 
               <p className="mb-4" style={{maxWidth: "470px", lineHeight: 1.7, color: "#ddd", fontSize: "clamp(13px, 1.5vw, 15px)" }}>
-                BBL is a youth-driven organization working for social
-                welfare, awareness, education and community empowerment.
+                Khoj Bihar se, Jawab Loktantra ke....
               </p>
 
               <div className="d-flex flex-column flex-sm-row gap-3">
 
                 <button className="btn btn-danger px-4 py-2">
-                  Explore Our Events →
+                  Explore The Inquiry →
                 </button>
 
                 <button className="btn btn-outline-light px-4 py-2">
-                  Join Our Mission
+                  Join Our Initiative
                 </button>
 
               </div>

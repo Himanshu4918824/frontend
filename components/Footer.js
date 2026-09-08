@@ -1,233 +1,279 @@
-import React from "react";
+"use client";
+
 import Link from "next/link";
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bbl-footer">
-
-      {/* ================= CTA SECTION ================= */}
-      <div className="footer-cta">
-        <div className="container">
-          <div className="row align-items-center">
-
-            {/* Logo / Icon */}
-            <div className="col-auto">
-              <div className="change-icon">
-                <i className="bi bi-heart"></i>
-              </div>
-            </div>
-
-            {/* Text */}
-            <div className="col">
-              <h3>
-                Be A Part Of <span>Change</span>
-              </h3>
-              <p>
-                Join hands with us to be the reason someone smiles today.
-              </p>
-            </div>
-
-            {/* Button */}
-            <div className="col-auto">
-              <Link href="#" className="join-btn">
-                Join Us Today
-                <i className="bi bi-arrow-right"></i>
-              </Link>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
+    <footer
+      className="text-white"
+      style={{
+        backgroundColor: "#a93627",
+      }}
+    >
 
       {/* ================= MAIN FOOTER ================= */}
-      <div className="footer-main">
-        <div className="container">
-          <div className="row gy-5">
 
-            {/* ================= BRAND ================= */}
-            <div className="col-lg-3 col-md-6">
+      <div className="container py-5">
 
-              <div className="footer-brand">
+        <div className="row gy-4">
 
-                {/* Replace with your actual logo */}
-                <div className="brand-logo">
-                  <div className="logo-circle">
-                    <img src="images/logo.png"/>
-                  </div>
+          {/* ================= BRAND ================= */}
 
-                  <div>
-                    <h2>BBL</h2>
-                    <small>BIHAR BASED LEAGUE</small>
-                  </div>
-                </div>
+          <div className="col-12 col-md-6 col-lg-4">
 
-                <p className="brand-description">
-                  Together we can create a better Bihar for today and a
-                  brighter tomorrow.
-                </p>
+            <h3
+              className="fw-semibold mb-3"
+              style={{
+                fontSize: "20px",
+                letterSpacing: "0.2px",
+              }}
+            >
+              Bihar Bachayega Loktantra
+            </h3>
 
-                {/* Social Media */}
-                <div className="social-links">
-                  <a href="#" aria-label="Facebook">
-                    <i className="bi bi-facebook" style={{color:'#fff',fontSize:16}}></i>
-                  </a>
+            <p
+              className="mb-0"
+              style={{
+                maxWidth: "290px",
+                fontSize: "14px",
+                lineHeight: "1.5",
+                color: "rgba(255,255,255,0.78)",
+              }}
+            >
+              A national constitutional inquiry exploring the challenges,
+              strengths and future possibilities of Indian democracy,
+              rooted in Bihar&apos;s civic heritage.
+            </p>
 
-                  <a href="#" aria-label="Instagram">
-                    <i className="bi bi-instagram" style={{color:'#fff',fontSize:16}}></i>
-                  </a>
+          </div>
 
-                  <a href="#" aria-label="Twitter">
-                    <i className="bi bi-twitter" style={{color:'#fff',fontSize:16}}></i>
-                  </a>
 
-                  <a href="#" aria-label="YouTube">
-                    <i className="bi bi-youtube" style={{color:'#fff',fontSize:16}}></i>
-                  </a>
-                </div>
+          {/* ================= EXPLORE ================= */}
 
-              </div>
+          <div className="col-6 col-md-3 col-lg-3">
+
+            <h6
+              className="fw-bold mb-3"
+              style={{
+                fontSize: "14px",
+                letterSpacing: "1px",
+                color: "#d2a32b",
+              }}
+            >
+              EXPLORE
+            </h6>
+
+            <ul className="list-unstyled mb-0">
+
+              <li className="mb-2">
+                <Link
+                  href="/"
+                  className="text-decoration-none"
+                  style={{
+                    color: "rgba(255,255,255,0.78)",
+                    fontSize: "14px",
+                  }}
+                >
+                  Home
+                </Link>
+              </li>
+
+              <li className="mb-2">
+                <Link
+                  href="/about"
+                  className="text-decoration-none"
+                  style={{
+                    color: "rgba(255,255,255,0.78)",
+                    fontSize: "14px",
+                  }}
+                >
+                  About Us
+                </Link>
+              </li>
+
+              <li className="mb-2">
+                <Link
+                  href="/events"
+                  className="text-decoration-none"
+                  style={{
+                    color: "rgba(255,255,255,0.78)",
+                    fontSize: "14px",
+                  }}
+                >
+                  Events
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/archive"
+                  className="text-decoration-none"
+                  style={{
+                    color: "rgba(255,255,255,0.78)",
+                    fontSize: "14px",
+                  }}
+                >
+                  Archive
+                </Link>
+              </li>
+
+            </ul>
+
+          </div>
+
+
+          {/* ================= GET INVOLVED ================= */}
+
+          <div className="col-6 col-md-3 col-lg-3">
+
+            <h6
+              className="fw-bold mb-3"
+              style={{
+                fontSize: "14px",
+                letterSpacing: "1px",
+                color: "#d2a32b",
+              }}
+            >
+              GET INVOLVED
+            </h6>
+
+            <ul className="list-unstyled mb-0">
+
+              <li className="mb-2">
+                <Link
+                  href="#"
+                  className="text-decoration-none"
+                  style={{
+                    color: "rgba(255,255,255,0.78)",
+                    fontSize: "14px",
+                  }}
+                >
+                  Contribute
+                </Link>
+              </li>
+
+              <li className="mb-2">
+                <Link
+                  href="#"
+                  className="text-decoration-none"
+                  style={{
+                    color: "rgba(255,255,255,0.78)",
+                    fontSize: "14px",
+                  }}
+                >
+                  Join the Initiative
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="#"
+                  className="text-decoration-none"
+                  style={{
+                    color: "rgba(255,255,255,0.78)",
+                    fontSize: "14px",
+                  }}
+                >
+                  Donate
+                </Link>
+              </li>
+
+            </ul>
+
+          </div>
+
+
+          {/* ================= CONTACT ================= */}
+
+          <div className="col-12 col-md-6 col-lg-2">
+
+            <h6
+              className="fw-bold mb-3"
+              style={{
+                fontSize: "14px",
+                letterSpacing: "1px",
+                color: "#d2a32b",
+              }}
+            >
+              CONTACT
+            </h6>
+
+            <div
+              className="mb-2"
+              style={{
+                fontSize: "14px",
+                color: "rgba(255,255,255,0.78)",
+              }}
+            >
+              info@biharloktantra.org
             </div>
 
-
-            {/* ================= QUICK LINKS ================= */}
-            <div className="col-lg-2 col-md-6">
-
-              <h5 className="footer-heading">
-                Quick Links
-              </h5>
-
-              <ul className="footer-links">
-                <li>
-                  <Link href="/">Home</Link>
-                </li>
-
-                <li>
-                  <Link href="/about">About Us</Link>
-                </li>
-
-                <li>
-                  <Link href="#">Events</Link>
-                </li>
-
-                <li>
-                  <Link href="#">Gallery</Link>
-                </li>
-              </ul>
-
+            <div
+              style={{
+                fontSize: "14px",
+                color: "rgba(255,255,255,0.78)",
+              }}
+            >
+              Patna, Bihar
             </div>
 
+          </div>
 
-            {/* ================= PROGRAMS ================= */}
-            <div className="col-lg-2 col-md-6">
-
-              <h5 className="footer-heading">
-                Our Programs
-              </h5>
-
-              <ul className="footer-links">
-                <li>
-                  <Link href="#">
-                    Awareness
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="#">
-                    Education
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="#">
-                    Health
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="#">
-                    Environment
-                  </Link>
-                </li>
-              </ul>
-
-            </div>
+        </div>
 
 
-            {/* ================= CONTACT ================= */}
-            <div className="col-lg-2 col-md-6">
+        {/* ================= DIVIDER ================= */}
 
-              <h5 className="footer-heading">
-                Get In Touch
-              </h5>
+        <div
+          className="border-top mt-5 pt-4"
+          style={{
+            borderColor: "rgba(255,255,255,0.13) !important",
+          }}
+        >
 
-              <div className="contact-item">
-                <i className="bi bi-geo-alt"></i>
-                <span>
-                  Patna, Bihar, India
-                </span>
-              </div>
+          <div className="row gy-2">
 
-              <div className="contact-item">
-                <i className="bi bi-telephone"></i>
-                <span>
-                  +91 91234 xxxxx
-                </span>
-              </div>
+            {/* COPYRIGHT */}
 
-              <div className="contact-item">
-                <i className="bi bi-envelope"></i>
-                <span>
-                  info@bbl.org
-                </span>
-              </div>
+            <div className="col-12 col-md-6">
 
-            </div>
-
-
-            {/* ================= NEWSLETTER ================= */}
-            <div className="col-lg-3 col-md-6">
-
-              <h5 className="footer-heading">
-                Newsletter
-              </h5>
-
-              <p className="newsletter-text">
-                Subscribe to our newsletter to get our latest updates.
+              <p
+                className="mb-0"
+                style={{
+                  fontSize: "13px",
+                  color: "rgba(255,255,255,0.55)",
+                }}
+              >
+                © {new Date().getFullYear()} Bihar Bachayega Loktantra.
+                All rights reserved.
               </p>
 
-              <form className="newsletter-form">
+            </div>
 
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  required
-                />
 
-                <button type="submit">
-                  <i className="bi bi-send-fill"></i>
-                </button>
+            {/* RIGHT TEXT */}
 
-              </form>
+            <div className="col-12 col-md-6 text-md-end">
+
+              <p
+                className="mb-0"
+                style={{
+                  fontSize: "13px",
+                  color: "rgba(255,255,255,0.55)",
+                }}
+              >
+                A National Constitutional Inquiry, 2026–2027
+              </p>
 
             </div>
 
           </div>
-        </div>
-      </div>
 
-
-      {/* ================= COPYRIGHT ================= */}
-      <div className="footer-bottom">
-        <div className="container">
-          <p>
-            © {new Date().getFullYear()} Bihar Based League. All Rights Reserved.
-          </p>
         </div>
+
       </div>
 
     </footer>
   );
 };
 
-export default Footer;

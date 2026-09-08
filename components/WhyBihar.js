@@ -1,5 +1,7 @@
 "use client";
 
+import Gallery from "./Gallery";
+
 const data = [
   {
     text: "The optimism done by a poor being or a poor household gives evidence of their acumen and the power of optimism",
@@ -19,8 +21,45 @@ const data = [
   },
 ];
 
-export default function WhyBihar() {
-  return (
+
+const programs = [
+  {
+    icon: "bi-chat-square",
+    title: "Expert Dialogues",
+    description:
+      "Structured discussions with scholars, historians and practitioners.",
+  },
+  {
+    icon: "bi-clock",
+    title: "Youth & Campus Engagement",
+    description:
+      "Workshops and debates building engaged young citizens.",
+  },
+  {
+    icon: "bi-file-earmark-text",
+    title: "Research & Documentation",
+    description:
+      "Independent research and a public archive of findings.",
+  },
+  {
+    icon: "bi-calendar3",
+    title: "Public Events",
+    description:
+      "Town halls and gatherings open to anyone who wants to take part.",
+  },
+  {
+    icon: "bi-check-circle",
+    title: "National Findings",
+    description:
+      "A published report synthesising what was heard, for all.",
+  },
+];
+
+
+export default function WhyBihar() 
+{
+  
+  return (<div>
     <section className="bg-white py-5 overflow-hidden">
       <div className="container">
 
@@ -376,5 +415,293 @@ export default function WhyBihar() {
 
       </div>
     </section>
-  );
+
+    <div>
+      <section
+      className="py-5"
+      style={{
+        backgroundColor: "#faf6f0",
+      }}
+    >
+      <div className="container">
+
+        {/* ================= HEADER ================= */}
+
+        <div className="mb-5">
+
+          <h2
+            className="fw-bold mb-2"
+            style={{
+              fontFamily: 'Georgia, "Times New Roman", serif',
+              fontSize: "38px",
+              lineHeight: "1.1",
+              color: "#111",
+            }}
+          >
+            What We Are{" "}
+            <span style={{ color: "#a63828" }}>
+              Doing
+            </span>
+          </h2>
+
+          <p
+            className="fw-semibold mb-0"
+            style={{
+              fontSize: "18px",
+              color: "#493b35",
+            }}
+          >
+            Six ways the inquiry is being carried out
+          </p>
+
+        </div>
+
+
+        {/* ================= TOP ROW ================= */}
+
+        <div className="row g-3">
+
+          {/* ================= FEATURED CARD ================= */}
+
+          <div className="col-12 col-lg-8">
+
+            <div
+              className="rounded-1 h-100 p-4 p-md-5 text-white d-flex flex-column justify-content-between"
+              style={{
+                backgroundColor: "#aa3d2d",
+                minHeight: "266px",
+              }}
+            >
+
+              <div>
+
+                <h3
+                  className="fw-semibold mb-2"
+                  style={{
+                    fontSize: "22px",
+                  }}
+                >
+                  District Consultations
+                </h3>
+
+                <p
+                  className="mb-0"
+                  style={{
+                    maxWidth: "370px",
+                    fontSize: "13px",
+                    lineHeight: "1.4",
+                    color: "rgba(255,255,255,0.82)",
+                  }}
+                >
+                  Open conversations across all of Bihar&apos;s districts,
+                  gathering firsthand experiences of democracy from
+                  panchayats to city wards.
+                </p>
+
+              </div>
+
+
+              {/* STATS */}
+
+              <div className="d-flex gap-5 mt-4">
+
+                <div>
+
+                  <div
+                    className="fw-bold"
+                    style={{
+                      fontSize: "22px",
+                      lineHeight: "1",
+                    }}
+                  >
+                    38
+                  </div>
+
+                  <div
+                    className="mt-1"
+                    style={{
+                      fontSize: "12px",
+                      color: "rgba(255,255,255,0.75)",
+                    }}
+                  >
+                    Districts
+                  </div>
+
+                </div>
+
+
+                <div>
+
+                  <div
+                    className="fw-bold"
+                    style={{
+                      fontSize: "22px",
+                      lineHeight: "1",
+                    }}
+                  >
+                    120+
+                  </div>
+
+                  <div
+                    className="mt-1"
+                    style={{
+                      fontSize: "12px",
+                      color: "rgba(255,255,255,0.75)",
+                    }}
+                  >
+                    Sessions Held
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          {/* ================= RIGHT STACK ================= */}
+
+          <div className="col-12 col-lg-4">
+
+            <div className="row g-3">
+
+              {programs.slice(0, 2).map((item, index) => (
+
+                <div
+                  className="col-12"
+                  key={index}
+                >
+
+                  <div
+                    className="bg-white border rounded-1 p-3"
+                    style={{
+                      minHeight: "127px",
+                      borderColor: "#eaded6",
+                    }}
+                  >
+
+                    <i
+                      className={`bi ${item.icon}`}
+                      style={{
+                        color: "#b43829",
+                        fontSize: "17px",
+                      }}
+                    ></i>
+
+
+                    <h6
+                      className="fw-bold mt-4 mb-1"
+                      style={{
+                        fontFamily:
+                          'Georgia, "Times New Roman", serif',
+                        fontSize: "13px",
+                        color: "#302621",
+                      }}
+                    >
+                      {item.title}
+                    </h6>
+
+
+                    <p
+                      className="mb-0"
+                      style={{
+                        fontSize: "10px",
+                        lineHeight: "1.45",
+                        color: "#6b5d57",
+                      }}
+                    >
+                      {item.description}
+                    </p>
+
+                  </div>
+
+                </div>
+
+              ))}
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        {/* ================= BOTTOM ROW ================= */}
+
+        <div className="row g-3 mt-0">
+
+          {programs.slice(2).map((item, index) => (
+
+            <div
+              className="col-12 col-md-6 col-lg-4"
+              key={index}
+            >
+
+              <div
+                className="bg-white border rounded-1 p-3 h-100"
+                style={{
+                  minHeight: "126px",
+                  borderColor: "#eaded6",
+                }}
+              >
+
+                {/* ICON */}
+
+                <i
+                  className={`bi ${item.icon}`}
+                  style={{
+                    color: "#b43829",
+                    fontSize: "17px",
+                  }}
+                ></i>
+
+
+                {/* TITLE */}
+
+                <h6
+                  className="fw-bold mt-4 mb-1"
+                  style={{
+                    fontFamily:
+                      'Georgia, "Times New Roman", serif',
+                    fontSize: "13px",
+                    color: "#302621",
+                  }}
+                >
+                  {item.title}
+                </h6>
+
+
+                {/* DESCRIPTION */}
+
+                <p
+                  className="mb-0"
+                  style={{
+                    fontSize: "10px",
+                    lineHeight: "1.45",
+                    color: "#6b5d57",
+                  }}
+                >
+                  {item.description}
+                </p>
+
+              </div>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </div>
+    </section>
+    </div>
+
+    <div>
+      <Gallery/>
+    </div>
+
+    
+  </div>);
 }

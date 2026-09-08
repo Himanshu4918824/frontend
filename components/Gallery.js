@@ -1,112 +1,292 @@
 "use client";
 
-export default function Gallery() {
-  const galleryData = [
-    { image: "aboutpic.png" },
-    { image: "homepic.png" },
-    { image: "tree.png" },
-    { image: "aboutpic.png" },
-    { image: "homepic.png" },
-  ];
+import { useState } from "react";
+
+const highlights = [
+  {
+    image: "/images/aboutpic.png",
+    category: "CONSULTATION",
+    title: "Vaishali District Consultation, March 2026",
+  },
+  {
+    image: "/images/homepic.png",
+    category: "CAMPUS DIALOGUE",
+    title: "Patna University Campus Dialogue",
+  },
+  {
+    image: "/images/tree.png",
+    category: "PUBLIC LECTURE",
+    title: "Constitutionalism & Community",
+  },
+  {
+    image: "/images/aboutpic.png",
+    category: "DISTRICT CONSULTATION",
+    title: "Gaya District Consultation",
+  },
+  {
+    image: "/images/homepic.png",
+    category: "EXPERT DIALOGUE",
+    title: "Expert Conversations",
+  },
+];
+
+export default function Highlights() {
+  const [current, setCurrent] = useState(0);
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % highlights.length);
+  };
+
+  const prevSlide = () => {
+    setCurrent(
+      (prev) => (prev - 1 + highlights.length) % highlights.length
+    );
+  };
+
+  const getCard = (offset) => {
+    return highlights[
+      (current + offset + highlights.length) % highlights.length
+    ];
+  };
 
   return (
-    <section
-      className="py-5"
-      style={{ background: "#fff" }}
-    >
-      <div className="container">
+    <section className="py-5 bg-white">
+      <div className="container-fluid px-3 px-md-4 px-lg-5">
 
-        {/* HEADER */}
-        <div className="d-flex justify-content-between align-items-end mb-3">
+        {/* ================= HEADER ================= */}
 
-          {/* LEFT */}
-          <div>
-            <div
-              style={{
-                color: "#9d172c",
-                fontSize: "11px",
-                fontWeight: 700,
-                letterSpacing: "0.8px",
-                textTransform: "uppercase",
-                marginBottom: "5px",
-              }}
-            >
-              Gallery
-            </div>
-
-            <h2
-              className="mb-0"
-              style={{
-                fontSize: "27px",
-                fontWeight: 700,
-                lineHeight: 1.2,
-                color: "#151515",
-              }}
-            >
-              Moments Of{" "}
-              <span style={{ color: "#a00012" }}>
-                Change
-              </span>
-            </h2>
-          </div>
-
-          {/* VIEW GALLERY */}
-          <a
-            href="#"
-            className="text-decoration-none d-flex align-items-center gap-2"
+        <div className="mb-4 mb-md-5 px-0 px-lg-5">
+          <h2
+            className="fw-bold mb-2"
             style={{
-              color: "#8f1729",
-              fontSize: "12px",
-              fontWeight: 600,
-              marginBottom: "3px",
+              fontFamily: 'Georgia, "Times New Roman", serif',
+              fontSize: "clamp(32px, 4vw, 48px)",
+              lineHeight: "1.1",
+              color: "#a63828",
             }}
           >
-            <span>View Full Gallery</span>
+            Highlights
+          </h2>
 
-            <span
-              style={{
-                fontSize: "18px",
-                lineHeight: 1,
-              }}
-            >
-              →
-            </span>
-          </a>
+          <p
+            className="fw-semibold mb-0"
+            style={{
+              fontSize: "clamp(16px, 1.5vw, 20px)",
+              color: "#382c27",
+            }}
+          >
+            From the districts, campuses and halls
+          </p>
         </div>
 
-        {/* GALLERY */}
-        <div className="row g-2">
+        {/* ================= CAROUSEL ================= */}
 
-          {galleryData.map((item, index) => (
-            <div
-              className="col-6 col-md-4 col-lg"
-              key={index}
-            >
-              <div
-                style={{
-                  width: "100%",
-                  height: "155px",
-                  borderRadius: "10px",
-                  overflow: "hidden",
-                }}
-              >
-                <img
-                  src={`/images/${item.image}`}
-                  alt={`BBL Gallery ${index + 1}`}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    display: "block",
-                  }}
-                />
-              </div>
+        <div className="position-relative w-100">
+
+          {/* ================= LEFT ARROW ================= */}
+
+          <button
+            type="button"
+            onClick={prevSlide}
+            aria-label="Previous highlight"
+            className="
+              position-absolute
+              top-50
+              translate-middle-y
+              rounded-circle
+              bg-white
+              border
+              shadow-sm
+              d-flex
+              align-items-center
+              justify-content-center
+              p-0
+            "
+            style={{
+              left: "1%",
+              width: "42px",
+              height: "42px",
+              zIndex: 10,
+              color: "#4b3b34",
+              borderColor: "#e8ddd5",
+            }}
+          >
+            <i className="bi bi-chevron-left"></i>
+          </button>
+
+          {/* =================================================
+                         DESKTOP — 3 CARDS
+              ================================================= */}
+
+          <div
+            className="row align-items-center justify-content-center g-3 g-lg-4 mx-auto d-none d-md-flex"
+            style={{
+              maxWidth: "1250px",
+            }}
+          >
+
+            {/* LEFT CARD */}
+
+            <div className="col-md-4">
+              <HighlightCard
+                item={getCard(-1)}
+                active={false}
+              />
             </div>
-          ))}
+
+            {/* CENTER CARD */}
+
+            <div className="col-md-4">
+              <HighlightCard
+                item={getCard(0)}
+                active={true}
+              />
+            </div>
+
+            {/* RIGHT CARD */}
+
+            <div className="col-md-4">
+              <HighlightCard
+                item={getCard(1)}
+                active={false}
+              />
+            </div>
+
+          </div>
+
+          {/* =================================================
+                         MOBILE — ONLY 1 CARD
+              ================================================= */}
+
+          <div className="d-md-none px-2">
+
+            <HighlightCard
+              item={getCard(0)}
+              active={true}
+            />
+
+          </div>
+
+          {/* ================= RIGHT ARROW ================= */}
+
+          <button
+            type="button"
+            onClick={nextSlide}
+            aria-label="Next highlight"
+            className="
+              position-absolute
+              top-50
+              translate-middle-y
+              rounded-circle
+              bg-white
+              border
+              shadow-sm
+              d-flex
+              align-items-center
+              justify-content-center
+              p-0
+            "
+            style={{
+              right: "1%",
+              width: "42px",
+              height: "42px",
+              zIndex: 10,
+              color: "#4b3b34",
+              borderColor: "#e8ddd5",
+            }}
+          >
+            <i className="bi bi-chevron-right"></i>
+          </button>
 
         </div>
 
       </div>
     </section>
+  );
+}
+
+
+/* =========================================================
+                         CARD
+========================================================= */
+
+function HighlightCard({ item, active }) {
+  return (
+    <div
+      className="position-relative overflow-hidden rounded-2 w-100"
+      style={{
+        height: "clamp(300px, 32vw, 370px)",
+        transform: active ? "scale(1)" : "scale(0.92)",
+        transition: "transform 0.3s ease",
+        boxShadow: active
+          ? "0 12px 30px rgba(45, 25, 15, 0.12)"
+          : "none",
+      }}
+    >
+
+      {/* ================= IMAGE ================= */}
+
+      <img
+        src={item.image}
+        alt={item.title}
+        className="position-absolute top-0 start-0 w-100 h-100"
+        style={{
+          objectFit: "cover",
+        }}
+      />
+
+      {/* ================= OVERLAY ================= */}
+
+      <div
+        className="position-absolute top-0 start-0 w-100 h-100"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(30,15,10,0.02) 25%, rgba(30,15,10,0.88) 100%)",
+        }}
+      />
+
+      {/* ================= CONTENT ================= */}
+
+      <div
+        className="
+          position-absolute
+          bottom-0
+          start-0
+          w-100
+          p-3
+          p-md-4
+          text-white
+        "
+      >
+
+        {/* CATEGORY */}
+
+        <span
+          className="d-inline-block px-2 py-1 fw-bold mb-2"
+          style={{
+            backgroundColor: "#a93627",
+            fontSize: "8px",
+            letterSpacing: "1px",
+          }}
+        >
+          {item.category}
+        </span>
+
+        {/* TITLE */}
+
+        <h5
+          className="mb-0 fw-semibold"
+          style={{
+            fontSize: active ? "16px" : "13px",
+            lineHeight: "1.35",
+            maxWidth: "320px",
+          }}
+        >
+          {item.title}
+        </h5>
+
+      </div>
+
+    </div>
   );
 }
