@@ -1,313 +1,160 @@
+"use client";
+
+import Link from "next/link";
 import Image from "next/image";
-
-const stats = [
-  ["bi-people", "50+", "Events Organized"],
-  ["bi-heart", "38", "District Consulted"],
-  ["bi-person", "12k+", "Citizen Voice"],
-  ["bi-geo-alt", "6", "Partner Universities"],
-];
-
-const points = [
-  {
-    icon: "bi-megaphone",
-    title: "Create Awareness",
-    text: "Through impactful campaigns and programs",
-  },
-  {
-    icon: "bi-people",
-    title: "Empower Communities",
-    text: "By supporting education, health and livelihood initiatives",
-  },
-  {
-    icon: "bi-bullseye",
-    title: "Build A Better Bihar",
-    text: "Through unity, service and sustainable development",
-  },
-];
 
 export default function HomePage() 
 {
   return (
-    <div>
-
-      {/* ================= HERO ================= */}
-
-      <section className="position-relative" style={{minHeight: "clamp(620px, 80vh, 700px)", overflow: "visible"}}
-      >
-        <Image
-          src="/images/homepic.png"
-          alt="BBL Team"
-          fill
-          priority
-          style={{objectFit: "cover", objectPosition: "center"}}/>
-
-        {/* Overlay */}
-        <div
-          className="position-absolute top-0 start-0 w-100 h-100" style={{background: "linear-gradient(90deg, #000d, #0007, transparent)", }}/>
-
-        {/* Hero Content */}
-        <div className="container h-100 position-relative">
-          <div className="row align-items-center h-100">
-
-            <div className="col-12 col-md-9 col-lg-7 col-xl-6 text-white">
-
-              <small className="fw-bold" style={{fontSize: "clamp(10px, 1.5vw, 13px)", letterSpacing: "1.5px",}} >
-                TOGETHER WE CAN ──
-              </small>
-
-              <h1 className="fw-bold my-3" style={{fontSize: "clamp(40px, 4vw, 60px)", lineHeight: 0.95}}>
-                CAN BIHAR ONCE AGAIN HELP STRENGTHEN
-                <br />
-                <span style={{ color: "#e21b23" }}>
-                  INDIAN DEMOCRACIES?
-                </span>
-              </h1>
-
-              <p className="mb-4" style={{maxWidth: "470px", lineHeight: 1.7, color: "#ddd", fontSize: "clamp(13px, 1.5vw, 15px)" }}>
-                Khoj Bihar se, Jawab Loktantra ke....
-              </p>
-
-              <div className="d-flex flex-column flex-sm-row gap-3">
-
-                <button className="btn btn-danger px-4 py-2">
-                  Explore The Inquiry →
-                </button>
-
-                <button className="btn btn-outline-light px-4 py-2">
-                  Join Our Initiative
-                </button>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        {/* ================= STATS ================= */}
-
-        <div className="container position-absolute start-50 translate-middle-x px-3" style={{ bottom: "-65px" }}>
-          <div className="row bg-white rounded-4 shadow overflow-hidden">
-
-            {stats.map(([icon, number, label], index) => (
-              <div className="col-6 col-lg-3 p-0" key={label}>
-                <div className={`d-flex align-items-center gap-2 gap-sm-3 px-3 px-sm-4 py-3 ${ index < 3 ? "border-end" : ""}`} style={{ minHeight: "110px", borderColor: "#eee", }}>
-
-                  <i className={`bi ${icon} flex-shrink-0`} style={{ fontSize: "clamp(22px, 3vw, 30px)", color: "#c71922"}}/>
-
-                  <div>
-                    <h3 className="mb-0 fw-bold" style={{fontSize: "clamp(20px, 3vw, 28px)" }}>
-                      {number}
-                    </h3>
-
-                    <small className="text-muted" style={{fontSize: "clamp(9px, 1.3vw, 12px)" }}>
-                      {label}
-                    </small>
-                  </div>
-
-                </div>
-              </div>
-            ))}
-
-          </div>
-        </div>
-      </section>
-
-
-      {/* ================= ABOUT ================= */}
-
-      <section className="container py-5 my-4 my-lg-5 px-3 px-lg-4">
+     <section className="bg-white border-top py-5">
+      <div className="container py-4 py-md-5">
 
         <div className="row align-items-center g-5">
 
-          {/* LEFT CONTENT */}
+          {/* ================= LEFT CONTENT ================= */}
 
-          <div className="col-12 col-lg-4">
+          <div className="col-12 col-lg-5">
 
-            <span style={{color: "#9e1720",fontSize: "12px",fontWeight: 800,letterSpacing: "1.5px"}}>
-              ABOUT US
-            </span>
-
-            <h2 className="fw-bold mt-2 mb-3" style={{fontSize: "clamp(30px, 4vw, 40px)",lineHeight: 1.15, fontFamily: "Playfair Display"}}>
-              We Are A Youth-Driven
+            <h1 className="display-5 fw-bold lh-1 mb-4 text-dark">
+              Can Bihar once again
               <br />
-
-              <span style={{ color: "#9e1720" }}>
-                Social Organization
+              help strengthen{" "}
+              <span style={{ color: "#a93627" }}>
+                Indian
               </span>
-            </h2>
+              <br />
+              <span style={{ color: "#a93627" }}>
+                Democracy?
+              </span>
+            </h1>
 
-            <p className="text-secondary" style={{ fontSize: "14px", lineHeight: 1.8 }}>
-              BBL (Bihar Based League) is a non-profit organization
-              working for social welfare, awareness, education, health,
-              environment and community empowerment. We believe in the
-              power of youth and collective action to bring positive
-              change in society.
+            <p className="fw-semibold text-secondary mb-5">
+              Khoj Bihar se, Jawab Loktantra ke..
             </p>
 
-            <div className="d-flex align-items-center gap-3 my-4">
+            {/* ================= BUTTONS ================= */}
 
-              <span style={{fontSize: "35px", color: "#222"}}>
-                〰
-              </span>
+            <div className="d-flex flex-wrap gap-2 mb-4">
 
-              <b style={{ fontSize: "13px" }}>
-                BBL Team
-              </b>
-
-            </div>
-
-            <button className="btn btn-danger px-4 py-2">
-              Know More About Us
-              <i className="bi bi-arrow-right ms-2"></i>
-            </button>
-
-          </div>
-
-
-          {/* CENTER IMAGE */}
-
-          <div className="col-12 col-md-6 col-lg-4">
-
-            <div
-              className="position-relative mx-auto"
-              style={{width: "100%", maxWidth: "380px", height: "clamp(350px, 55vw, 440px)", borderRadius: "20px"}}>
-
-              <Image
-                src="/images/tree.png"
-                alt="BBL Team"
-                fill
-                sizes="300px"
+              <Link
+                href="/inquiry"
+                className="btn text-white px-4 py-3 rounded-1 fw-semibold"
                 style={{
-                  objectFit: "cover",
-                  borderRadius: "20px",
+                  backgroundColor: "#a93627",
+                  fontSize: "12px",
                 }}
-              />
+              >
+                Explore the Inquiry
+              </Link>
 
-              {/* Floating Card */}
-
-              <div
-                className="position-absolute bg-white shadow text-center d-none d-sm-block"
-                style={{bottom: "-20px", left: "-25px", width: "125px", padding: "18px", borderRadius: "15px", color: "#a71922", fontSize: "11px",}}>
-
-                <i className="bi bi-people d-block" style={{color: "#a71922",fontSize: "28px", margin: "8px 0"}}/>
-
-                <span>
-                  Building Better
-                  <br />
-                  Communities
-                </span>
-
-              </div>
+              <Link
+                href="/contribute"
+                className="btn btn-outline-dark px-4 py-3 rounded-1 fw-semibold"
+                style={{
+                  fontSize: "12px",
+                }}
+              >
+                Join the Initiative
+              </Link>
 
             </div>
 
-          </div>
+            {/* ================= STATS ================= */}
 
-
-          {/* RIGHT CONTENT */}
-
-          <div className="col-12 col-md-6 col-lg-4">
-
-            <div>
-              {points.map((item) => (
-
-                <div className="d-flex gap-3 mb-4" key={item.title}>
-
-                  {/* Icon */}
-
-                  <div
-                    className="flex-shrink-0 d-flex align-items-center justify-content-center"
-                    style={{width: "58px",height: "58px", borderRadius: "50%", background: "#fff0f0",color: "#a71922", fontSize: "24px", }}>
-                    <i className={`bi ${item.icon}`}></i>
-                  </div>
-
-                  {/* Text */}
-
-                  <div>
-
-                    <h3 className="fw-bold mb-1" style={{fontSize: "16px",}}>
-                      {item.title}
-                    </h3>
-
-                    <p className="text-secondary mb-0" style={{fontSize: "12px", lineHeight: 1.6, maxWidth: "240px" }}>
-                      {item.text}
-                    </p>
-
-                  </div>
-
-                </div>
-
-              ))}
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* ================= IMPACT ================= */}
-
-      <section className="py-4" style={{ background: "linear-gradient(90deg, #420007e8, #78000be8)", color: "white" }}>
-
-        <div className="container">
-          <div className="row align-items-center">
-
-            {/* Heading */}
-
-            <div className="col-12 col-lg-3 mb-4 mb-lg-0">
-
-              <small className="fw-bold" style={{fontSize: "10px",letterSpacing: "1px"}}>
-                OUR IMPACT
-              </small>
-
-              <h2 className="fw-bold mb-0" style={{fontSize: "20px", lineHeight: 1.1 }}>
-                Making A Difference
-                <br />
-
-                <span style={{ color: "#ed1c24" }}>
-                  In Numbers
-                </span>
-              </h2>
-
-            </div>
-
-
-            {/* Stats */}
-
-            <div className="col-12 col-lg-9">
+            <div className="border-top pt-3 mt-4">
 
               <div className="row g-0">
 
-                {stats.map(([icon, number, label], index) => (
+                {/* STAT 1 */}
 
-                  <div className="col-6 col-md-3" key={label}>
-
-                    <div
-                      className={`d-flex align-items-center gap-2 gap-sm-3 px-2 px-md-3 py-3 ${index !== 0 ? "border-start" : "" }`}
-                      style={{minHeight: "65px", borderColor: "#ffffff40" }}>
-
-                      <i className={`bi ${icon}`} style={{ color: "#ed1c24", fontSize: "24px" }}/>
-
-                      <div>
-
-                        <h3 className="mb-0 fw-bold" style={{ fontSize: "20px"}} >
-                          {number}
-                        </h3>
-
-                        <p className="mb-0" style={{color: "#ddd",fontSize: "10px"}}>
-                          {label}
-                        </p>
-
-                      </div>
-
-                    </div>
-
+                <div className="col-4 pe-2">
+                  <div className="fw-bold fs-5 text-dark">
+                    38
                   </div>
 
-                ))}
+                  <small className="text-secondary">
+                    Districts Consulted
+                  </small>
+                </div>
+
+                {/* STAT 2 */}
+
+                <div className="col-4 px-3 border-start border-end">
+                  <div className="fw-bold fs-5 text-dark">
+                    12k+
+                  </div>
+
+                  <small className="text-secondary">
+                    Citizen Voices
+                  </small>
+                </div>
+
+                {/* STAT 3 */}
+
+                <div className="col-4 ps-3">
+                  <div className="fw-bold fs-5 text-dark">
+                    6
+                  </div>
+
+                  <small className="text-secondary">
+                    Partner Universities
+                  </small>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          {/* ================= RIGHT IMAGE ================= */}
+
+          <div className="col-12 col-lg-7">
+
+            <div className="position-relative rounded-2 overflow-hidden shadow">
+
+              <img
+                src="/images/homepic.png"
+                alt="Bihar's Democratic Heritage"
+                className="w-100 d-block"
+                style={{
+                  height: "min(60vw, 430px)",
+                  objectFit: "cover",
+                }}
+              />
+
+              {/* Dark overlay */}
+
+              <div
+                className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"
+              ></div>
+
+              {/* ================= IMAGE TEXT ================= */}
+
+              <div className="position-absolute bottom-0 start-0 p-4 text-white">
+
+                <div
+                  className="fw-bold mb-1"
+                  style={{
+                    fontSize: "10px",
+                    letterSpacing: "1px",
+                  }}
+                >
+                  BIHAR'S DEMOCRATIC HERITAGE
+                </div>
+
+                <div
+                  className="small"
+                  style={{
+                    maxWidth: "280px",
+                    lineHeight: "1.4",
+                  }}
+                >
+                  From Vaishali to Nalanda, from
+                  Champaran to the Future India's
+                  Democratic Renewal.
+                </div>
 
               </div>
 
@@ -317,8 +164,7 @@ export default function HomePage()
 
         </div>
 
-      </section>
-
-    </div>
+      </div>
+    </section>
   );
 }

@@ -1,292 +1,333 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const highlights = [
-  {
-    image: "/images/aboutpic.png",
-    category: "CONSULTATION",
-    title: "Vaishali District Consultation, March 2026",
-  },
-  {
-    image: "/images/homepic.png",
-    category: "CAMPUS DIALOGUE",
-    title: "Patna University Campus Dialogue",
-  },
-  {
-    image: "/images/tree.png",
-    category: "PUBLIC LECTURE",
-    title: "Constitutionalism & Community",
-  },
-  {
-    image: "/images/aboutpic.png",
-    category: "DISTRICT CONSULTATION",
-    title: "Gaya District Consultation",
-  },
-  {
-    image: "/images/homepic.png",
-    category: "EXPERT DIALOGUE",
-    title: "Expert Conversations",
-  },
-];
+export default function Gallery() {
+  const [active, setActive] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-export default function Highlights() {
-  const [current, setCurrent] = useState(0);
+  // Track viewport width for responsive calculations
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 576);
+    };
 
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const data = [
+    {
+      title: "CONSULTATION",
+      heading: "Vaishali District Consultation, March 2026",
+      image: "/images/aboutpic.png",
+    },
+    {
+      title: "EVENT",
+      heading: "Social Awareness Campaign",
+      image: "/images/homepic.png",
+    },
+    {
+      title: "WORKSHOP",
+      heading: "Community Development Workshop",
+      image: "/images/tree.png",
+    },
+    {
+      title: "AWARENESS",
+      heading: "Building Better Communities Together",
+      image: "/images/homepic.png",
+    },
+    {
+      title: "PROGRAM",
+      heading: "Youth Empowerment Program",
+      image: "/images/tree.png",
+    },
+    {
+      title: "CAMPAIGN",
+      heading: "Making A Positive Difference",
+      image: "/images/aboutpic.png",
+    },
+  ];
+
+  // NEXT
   const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % highlights.length);
+    setActive((prev) => (prev + 1) % data.length);
   };
 
+  // PREVIOUS
   const prevSlide = () => {
-    setCurrent(
-      (prev) => (prev - 1 + highlights.length) % highlights.length
-    );
+    setActive((prev) => (prev - 1 + data.length) % data.length);
   };
 
-  const getCard = (offset) => {
-    return highlights[
-      (current + offset + highlights.length) % highlights.length
-    ];
+  // CARD POSITION
+  const getPosition = (index) => {
+    let position = index - active;
+
+    if (position < -3) {
+      position += data.length;
+    }
+
+    if (position > 3) {
+      position -= data.length;
+    }
+
+    return position;
   };
 
   return (
-    <section className="py-5 bg-white">
-      <div className="container-fluid px-3 px-md-4 px-lg-5">
-
-        {/* ================= HEADER ================= */}
-
-        <div className="mb-4 mb-md-5 px-0 px-lg-5">
-          <h2
-            className="fw-bold mb-2"
-            style={{
-              fontFamily: 'Georgia, "Times New Roman", serif',
-              fontSize: "clamp(32px, 4vw, 48px)",
-              lineHeight: "1.1",
-              color: "#a63828",
-            }}
-          >
-            Highlights
-          </h2>
-
-          <p
-            className="fw-semibold mb-0"
-            style={{
-              fontSize: "clamp(16px, 1.5vw, 20px)",
-              color: "#382c27",
-            }}
-          >
-            From the districts, campuses and halls
-          </p>
-        </div>
-
-        {/* ================= CAROUSEL ================= */}
-
-        <div className="position-relative w-100">
-
-          {/* ================= LEFT ARROW ================= */}
-
-          <button
-            type="button"
-            onClick={prevSlide}
-            aria-label="Previous highlight"
-            className="
-              position-absolute
-              top-50
-              translate-middle-y
-              rounded-circle
-              bg-white
-              border
-              shadow-sm
-              d-flex
-              align-items-center
-              justify-content-center
-              p-0
-            "
-            style={{
-              left: "1%",
-              width: "42px",
-              height: "42px",
-              zIndex: 10,
-              color: "#4b3b34",
-              borderColor: "#e8ddd5",
-            }}
-          >
-            <i className="bi bi-chevron-left"></i>
-          </button>
-
-          {/* =================================================
-                         DESKTOP — 3 CARDS
-              ================================================= */}
-
-          <div
-            className="row align-items-center justify-content-center g-3 g-lg-4 mx-auto d-none d-md-flex"
-            style={{
-              maxWidth: "1250px",
-            }}
-          >
-
-            {/* LEFT CARD */}
-
-            <div className="col-md-4">
-              <HighlightCard
-                item={getCard(-1)}
-                active={false}
-              />
-            </div>
-
-            {/* CENTER CARD */}
-
-            <div className="col-md-4">
-              <HighlightCard
-                item={getCard(0)}
-                active={true}
-              />
-            </div>
-
-            {/* RIGHT CARD */}
-
-            <div className="col-md-4">
-              <HighlightCard
-                item={getCard(1)}
-                active={false}
-              />
-            </div>
-
-          </div>
-
-          {/* =================================================
-                         MOBILE — ONLY 1 CARD
-              ================================================= */}
-
-          <div className="d-md-none px-2">
-
-            <HighlightCard
-              item={getCard(0)}
-              active={true}
-            />
-
-          </div>
-
-          {/* ================= RIGHT ARROW ================= */}
-
-          <button
-            type="button"
-            onClick={nextSlide}
-            aria-label="Next highlight"
-            className="
-              position-absolute
-              top-50
-              translate-middle-y
-              rounded-circle
-              bg-white
-              border
-              shadow-sm
-              d-flex
-              align-items-center
-              justify-content-center
-              p-0
-            "
-            style={{
-              right: "1%",
-              width: "42px",
-              height: "42px",
-              zIndex: 10,
-              color: "#4b3b34",
-              borderColor: "#e8ddd5",
-            }}
-          >
-            <i className="bi bi-chevron-right"></i>
-          </button>
-
-        </div>
-
-      </div>
-    </section>
-  );
-}
-
-
-/* =========================================================
-                         CARD
-========================================================= */
-
-function HighlightCard({ item, active }) {
-  return (
-    <div
-      className="position-relative overflow-hidden rounded-2 w-100"
+    <section
+      className="container-fluid p-0"
       style={{
-        height: "clamp(300px, 32vw, 370px)",
-        transform: active ? "scale(1)" : "scale(0.92)",
-        transition: "transform 0.3s ease",
-        boxShadow: active
-          ? "0 12px 30px rgba(45, 25, 15, 0.12)"
-          : "none",
+        height: isMobile ? "650px" : "800px",
+        overflow: "hidden",
+        background: "#fff",
       }}
     >
-
-      {/* ================= IMAGE ================= */}
-
-      <img
-        src={item.image}
-        alt={item.title}
-        className="position-absolute top-0 start-0 w-100 h-100"
-        style={{
-          objectFit: "cover",
-        }}
-      />
-
-      {/* ================= OVERLAY ================= */}
-
+      {/* ================= HEADING ================= */}
       <div
-        className="position-absolute top-0 start-0 w-100 h-100"
+        className="container pt-4 pt-sm-5 px-3"
         style={{
-          background:
-            "linear-gradient(to bottom, rgba(30,15,10,0.02) 25%, rgba(30,15,10,0.88) 100%)",
+          position: "relative",
+          zIndex: 10,
         }}
-      />
-
-      {/* ================= CONTENT ================= */}
-
-      <div
-        className="
-          position-absolute
-          bottom-0
-          start-0
-          w-100
-          p-3
-          p-md-4
-          text-white
-        "
       >
-
-        {/* CATEGORY */}
-
-        <span
-          className="d-inline-block px-2 py-1 fw-bold mb-2"
+        <h2
+          className="mb-2"
           style={{
-            backgroundColor: "#a93627",
-            fontSize: "8px",
-            letterSpacing: "1px",
+            fontFamily: 'Georgia, "Times New Roman", serif',
+            fontSize: isMobile ? "28px" : "40px",
+            fontWeight: "700",
+            color: "#ad3828",
+            lineHeight: "1.1",
           }}
         >
-          {item.category}
-        </span>
+          Highlights
+        </h2>
 
-        {/* TITLE */}
-
-        <h5
-          className="mb-0 fw-semibold"
+        <p
+          className="mb-0"
           style={{
-            fontSize: active ? "16px" : "13px",
-            lineHeight: "1.35",
-            maxWidth: "320px",
+            color: "#342a26",
+            fontSize: isMobile ? "15px" : "18px",
+            fontWeight: "600",
           }}
         >
-          {item.title}
-        </h5>
-
+          From the district, campuses and halls
+        </p>
       </div>
 
-    </div>
+      {/* ================= CAROUSEL ================= */}
+      <div
+        className="position-relative w-100"
+        style={{
+          height: isMobile ? "480px" : "600px",
+          marginTop: isMobile ? "10px" : "20px",
+          overflow: "hidden",
+        }}
+      >
+        {/* ================= CARDS ================= */}
+        {data.map((item, index) => {
+          const position = getPosition(index);
+
+          let left = "50%";
+          let width = isMobile ? "180px" : "220px";
+          let height = isMobile ? "280px" : "360px";
+          let transform = "translate(-50%, -50%) scale(.8)";
+          let opacity = 0;
+          let zIndex = 1;
+
+          /* ================= CENTER CARD ================= */
+          if (position === 0) {
+            left = "50%";
+            width = isMobile ? "82vw" : "360px";
+            height = isMobile ? "380px" : "460px";
+            transform = "translate(-50%, -50%) scale(1)";
+            opacity = 1;
+            zIndex = 5;
+          }
+
+          /* ================= LEFT CARD ================= */
+          if (position === -1) {
+            left = isMobile ? "12%" : "27%";
+            width = isMobile ? "180px" : "270px";
+            height = isMobile ? "300px" : "400px";
+            transform = "translate(-50%, -50%) scale(.85)";
+            opacity = isMobile ? 0.3 : 1;
+            zIndex = 3;
+          }
+
+          /* ================= RIGHT CARD ================= */
+          if (position === 1) {
+            left = isMobile ? "88%" : "73%";
+            width = isMobile ? "180px" : "270px";
+            height = isMobile ? "300px" : "400px";
+            transform = "translate(-50%, -50%) scale(.85)";
+            opacity = isMobile ? 0.3 : 1;
+            zIndex = 3;
+          }
+
+          /* ================= FAR LEFT ================= */
+          if (position === -2) {
+            left = isMobile ? "-20%" : "7%";
+            width = isMobile ? "150px" : "220px";
+            height = isMobile ? "260px" : "360px";
+            transform = "translate(-50%, -50%) scale(.8)";
+            opacity = isMobile ? 0 : 0.45;
+            zIndex = 1;
+          }
+
+          /* ================= FAR RIGHT ================= */
+          if (position === 2) {
+            left = isMobile ? "120%" : "93%";
+            width = isMobile ? "150px" : "220px";
+            height = isMobile ? "260px" : "360px";
+            transform = "translate(-50%, -50%) scale(.8)";
+            opacity = isMobile ? 0 : 0.45;
+            zIndex = 1;
+          }
+
+          return (
+            <div
+              key={index}
+              className="position-absolute rounded-3 overflow-hidden"
+              style={{
+                left: left,
+                top: "48%",
+                width: width,
+                height: height,
+                maxWidth: "92vw",
+                transform: transform,
+                opacity: opacity,
+                zIndex: zIndex,
+                transition: "all .65s cubic-bezier(.4,0,.2,1)",
+                boxShadow:
+                  position === 0
+                    ? "0 20px 50px rgba(0,0,0,.22)"
+                    : "0 12px 30px rgba(0,0,0,.12)",
+              }}
+            >
+              {/* ================= IMAGE ================= */}
+              <img
+                src={item.image}
+                alt={item.heading}
+                className="w-100 h-100"
+                style={{
+                  objectFit: "cover",
+                }}
+              />
+
+              {/* ================= GRADIENT ================= */}
+              <div
+                className="position-absolute top-0 start-0 w-100 h-100"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, transparent 20%, rgba(0,0,0,.88) 100%)",
+                }}
+              />
+
+              {/* ================= CONTENT ================= */}
+              <div
+                className="position-absolute bottom-0 start-0 w-100 p-3"
+                style={{
+                  color: "#fff",
+                  boxSizing: "border-box",
+                }}
+              >
+                {/* TAG */}
+                <span
+                  className="badge mb-2 d-inline-block"
+                  style={{
+                    background: "#b83d28",
+                    letterSpacing: "1px",
+                    fontSize: isMobile ? "8px" : "9px",
+                    padding: "5px 8px",
+                  }}
+                >
+                  {item.title}
+                </span>
+
+                {/* TITLE */}
+                <h5
+                  className="fw-bold mb-0 text-break"
+                  style={{
+                    fontSize:
+                      position === 0
+                        ? isMobile
+                          ? "16px"
+                          : "19px"
+                        : "13px",
+                    lineHeight: "1.3",
+                    wordWrap: "break-word",
+                    overflowWrap: "break-word",
+                  }}
+                >
+                  {item.heading}
+                </h5>
+              </div>
+            </div>
+          );
+        })}
+
+        {/* ================= LEFT ARROW ================= */}
+        <button
+          onClick={prevSlide}
+          className="btn rounded-circle position-absolute top-50 start-0 translate-middle-y ms-2 ms-sm-3 d-flex align-items-center justify-content-center"
+          style={{
+            width: isMobile ? "36px" : "44px",
+            height: isMobile ? "36px" : "44px",
+            zIndex: 20,
+            background: "#fff",
+            border: "1px solid #eadbd5",
+            boxShadow: "0 5px 15px rgba(0,0,0,.10)",
+            fontSize: isMobile ? "16px" : "20px",
+            color: "#333",
+          }}
+        >
+          ‹
+        </button>
+
+        {/* ================= RIGHT ARROW ================= */}
+        <button
+          onClick={nextSlide}
+          className="btn rounded-circle position-absolute top-50 end-0 translate-middle-y me-2 me-sm-3 d-flex align-items-center justify-content-center"
+          style={{
+            width: isMobile ? "36px" : "44px",
+            height: isMobile ? "36px" : "44px",
+            zIndex: 20,
+            background: "#fff",
+            border: "1px solid #eadbd5",
+            boxShadow: "0 5px 15px rgba(0,0,0,.10)",
+            fontSize: isMobile ? "16px" : "20px",
+            color: "#333",
+          }}
+        >
+          ›
+        </button>
+
+        {/* ================= DOTS ================= */}
+        <div
+          className="position-absolute bottom-0 start-50 translate-middle-x d-flex align-items-center gap-2 pb-3"
+          style={{
+            zIndex: 20,
+          }}
+        >
+          {data.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActive(index)}
+              className="border-0 rounded-pill"
+              style={{
+                width: active === index ? (isMobile ? "20px" : "25px") : "8px",
+                height: "8px",
+                padding: 0,
+                background: active === index ? "#b83d28" : "#ccc",
+                transition: ".3s",
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

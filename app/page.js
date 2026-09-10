@@ -1,5 +1,6 @@
 
 //import EventScroll from "@/components/EventScroll";
+import Gallery from "@/components/Gallery";
 import HomePage from "./homepage/page";
 //import Gallery from "@/components/Gallery";
 import UpcomingEvents from "@/components/UpcomingEvent";
@@ -19,9 +20,15 @@ export default function Home()
       </div>
 
       <div>
+        <Gallery/>
+      </div>
+
+      <div>
         {/*<EventScroll/>*/}
         <UpcomingEvents/>
       </div>
+
+      
 
       
 
