@@ -117,7 +117,7 @@ export default function Header()
 
               <li className="nav-item">
                 <Link
-                  href="/events"
+                  href="#"
                   className="nav-link fw-semibold text-dark px-0"
                   onClick={handleMenuClick}
                 >
@@ -130,7 +130,7 @@ export default function Header()
 
               <li className="nav-item">
                 <Link
-                  href="/archive"
+                  href="#"
                   className="nav-link fw-semibold text-dark px-0"
                   onClick={handleMenuClick}
                 >
@@ -143,7 +143,7 @@ export default function Header()
 
               <li className="nav-item">
                 <Link
-                  href="/contribute"
+                  href="#"
                   className="nav-link fw-semibold text-dark px-0"
                   onClick={handleMenuClick}
                 >

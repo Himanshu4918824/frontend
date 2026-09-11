@@ -26,8 +26,7 @@ const events = [
   },
 ];
 
-export default function UpcomingEvents() 
-{
+export default function UpcomingEvents() {
   return (
     <section
       className="py-5"
@@ -35,32 +34,26 @@ export default function UpcomingEvents()
         background: "#f8f4ee",
       }}
     >
-      <div className="container">
-
+      <div className="container py-2">
         {/* ================= HEADING ================= */}
-
-        <div className="mb-5">
+        <div className="mb-4 mb-lg-5">
           <h2
-            className="mb-2"
+            className="fw-bold mb-2"
             style={{
               fontFamily: 'Georgia, "Times New Roman", serif',
-              fontSize: "40px",
-              fontWeight: "700",
-              color: "#111",
+              fontSize: "clamp(30px, 4vw, 44px)",
+              lineHeight: "1.1",
+              color: "#1a1a1a",
             }}
           >
-            Upcoming{" "}
-            <span style={{ color: "#ad3828" }}>
-              Events
-            </span>
+            Upcoming <span style={{ color: "#a93627" }}>Events</span>
           </h2>
 
           <p
-            className="mb-0"
+            className="fw-semibold mb-0"
             style={{
-              color: "#342a26",
-              fontSize: "18px",
-              fontWeight: "600",
+              fontSize: "clamp(15px, 1.5vw, 18px)",
+              color: "#5a4b45",
             }}
           >
             Take part in the next round of conversations
@@ -68,10 +61,9 @@ export default function UpcomingEvents()
         </div>
 
         {/* ================= EVENTS ================= */}
-
         <div
           style={{
-            borderTop: "1px solid #e3dcd4",
+            borderTop: "1px solid #eaded6",
           }}
         >
           {events.map((event, index) => (
@@ -80,19 +72,17 @@ export default function UpcomingEvents()
               className="row align-items-center g-0 py-3"
               style={{
                 minHeight: "99px",
-                borderBottom: "1px solid #e3dcd4",
+                borderBottom: "1px solid #eaded6",
               }}
             >
-
               {/* DATE BOX */}
-
               <div className="col-auto">
                 <div
                   className="d-flex flex-column justify-content-center align-items-center text-center"
                   style={{
                     width: "61px",
                     height: "61px",
-                    background: "#ad3828",
+                    background: "#a93627",
                     color: "#fff",
                     borderRadius: "2px",
                   }}
@@ -120,14 +110,13 @@ export default function UpcomingEvents()
               </div>
 
               {/* EVENT INFORMATION */}
-
               <div className="col ps-3 ps-sm-4">
                 <h3
-                  className="mb-1"
+                  className="mb-1 fw-bold"
                   style={{
-                    color: "#302722",
-                    fontSize: "15px",
-                    fontWeight: "700",
+                    fontFamily: 'Georgia, "Times New Roman", serif',
+                    color: "#1a1a1a",
+                    fontSize: "16px",
                   }}
                 >
                   {event.title}
@@ -136,7 +125,7 @@ export default function UpcomingEvents()
                 <div
                   className="d-flex flex-column flex-sm-row gap-1 gap-sm-4"
                   style={{
-                    color: "#776d67",
+                    color: "#6b5d57",
                     fontSize: "12px",
                   }}
                 >
@@ -146,10 +135,9 @@ export default function UpcomingEvents()
               </div>
 
               {/* REGISTER */}
-
               <div className="col-12 col-sm-auto mt-3 mt-sm-0 ms-sm-3">
                 <button
-                  className="w-100"
+                  className="w-100 fw-semibold"
                   style={{
                     minWidth: "70px",
                     height: "32px",
@@ -157,40 +145,37 @@ export default function UpcomingEvents()
                     background: "transparent",
                     border: "1px solid #786f69",
                     borderRadius: "2px",
-                    color: "#302722",
+                    color: "#1a1a1a",
                     fontSize: "11px",
-                    fontWeight: "600",
+                    letterSpacing: "0.5px",
                   }}
                 >
                   Register
                 </button>
               </div>
-
             </div>
           ))}
         </div>
 
         {/* ================= VIEW ALL ================= */}
-
         <div className="text-center mt-5">
           <button
-            className="btn"
+            className="btn fw-semibold"
             style={{
               minWidth: "130px",
               height: "40px",
               padding: "0 20px",
-              background: "#ad3828",
-              border: "1px solid #ad3828",
+              background: "#a93627",
+              border: "1px solid #a93627",
               borderRadius: "2px",
               color: "#fff",
               fontSize: "12px",
-              fontWeight: "600",
+              letterSpacing: "0.5px",
             }}
           >
             View All Events
           </button>
         </div>
-
       </div>
     </section>
   );

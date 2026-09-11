@@ -52,55 +52,53 @@ const programs = [
   },
 ];
 
-export default function WhyBihar() 
-{
+export default function WhyBihar() {
   return (
     <div>
-
-      {/* =====================================================
-                         WHY BIHAR
-      ====================================================== */}
-
+      {/* ================= WHY BIHAR ================= */}
       <section className="bg-white py-5 overflow-hidden">
-
         <div className="container">
-
-          {/* ================= HEADER ================= */}
-
           <div className="mb-4 mb-lg-5">
-
-            <h2  className="fw-bold mb-2 text-dark" style={{fontFamily: 'Georgia, "Times New Roman", serif', fontSize: "clamp(30px, 4vw, 44px)", lineHeight: "1.1"}}>
-              Why{" "}
-              <span style={{ color: "#a63828" }}>
-                Bihar?
-              </span>
+            <h2
+              className="fw-bold mb-2"
+              style={{
+                fontFamily: 'Georgia, "Times New Roman", serif',
+                fontSize: "clamp(30px, 4vw, 44px)",
+                lineHeight: "1.1",
+                color: "#1a1a1a",
+              }}
+            >
+              Why <span style={{ color: "#a93627" }}>Bihar?</span>
             </h2>
 
-            <p className="mb-0 fw-semibold" style={{fontSize: "clamp(15px, 1.5vw, 18px)", color: "#5a4b45",}}>
+            <p
+              className="mb-0 fw-semibold"
+              style={{
+                fontSize: "clamp(15px, 1.5vw, 18px)",
+                color: "#5a4b45",
+              }}
+            >
               From Vaishali&apos;s councils to Nalanda&apos;s courtyards, Bihar
             </p>
-
           </div>
 
-
-          {/* =====================================================
-                         DESKTOP TIMELINE
-          ====================================================== */}
-
-          <div className="d-none d-md-block position-relative mx-auto" style={{ maxWidth: "1180px", height: "520px", marginTop: "20px"}}>
-
-            {/* HORIZONTAL LINE */}
-
-            <div className="position-absolute start-0 end-0" style={{top: "250px", height: "2px", backgroundColor: "#eaded6" }}/>
+          {/* ================= DESKTOP TIMELINE ================= */}
+          <div
+            className="d-none d-md-block position-relative mx-auto"
+            style={{ maxWidth: "1180px", height: "520px", marginTop: "20px" }}
+          >
+            <div
+              className="position-absolute start-0 end-0"
+              style={{ top: "250px", height: "2px", backgroundColor: "#eaded6" }}
+            />
 
             <div className="row g-0 h-100">
-
               {data.map((item, index) => (
-
-                <div className="col-3 position-relative d-flex flex-column align-items-center" key={index}>
-
-                  {/* ================= TOP CARD ================= */}
-
+                <div
+                  className="col-3 position-relative d-flex flex-column align-items-center"
+                  key={index}
+                >
+                  {/* TOP CARD */}
                   {item.position === "top" && (
                     <>
                       <div
@@ -113,7 +111,6 @@ export default function WhyBihar()
                         }}
                       >
                         <div className="d-flex align-items-end h-100">
-
                           <p
                             className="mb-0"
                             style={{
@@ -124,12 +121,8 @@ export default function WhyBihar()
                           >
                             {item.text}
                           </p>
-
                         </div>
                       </div>
-
-
-                      {/* CONNECTOR */}
 
                       <div
                         className="position-absolute border-start"
@@ -140,26 +133,14 @@ export default function WhyBihar()
                         }}
                       />
 
-
-                      {/* DOT */}
-
                       <TimelineDot />
-
                     </>
                   )}
 
-
-                  {/* ================= BOTTOM CARD ================= */}
-
+                  {/* BOTTOM CARD */}
                   {item.position === "bottom" && (
                     <>
-
-                      {/* DOT */}
-
                       <TimelineDot />
-
-
-                      {/* CONNECTOR */}
 
                       <div
                         className="position-absolute border-start"
@@ -170,9 +151,6 @@ export default function WhyBihar()
                         }}
                       />
 
-
-                      {/* CARD */}
-
                       <div
                         className="bg-white border rounded-2 p-4 position-absolute shadow-sm"
                         style={{
@@ -182,9 +160,7 @@ export default function WhyBihar()
                           borderColor: "#eaded6",
                         }}
                       >
-
                         <div className="d-flex align-items-center h-100">
-
                           <p
                             className="mb-0"
                             style={{
@@ -195,33 +171,18 @@ export default function WhyBihar()
                           >
                             {item.text}
                           </p>
-
                         </div>
-
                       </div>
-
                     </>
                   )}
-
                 </div>
-
               ))}
-
             </div>
-
           </div>
 
-
-          {/* =====================================================
-                         MOBILE TIMELINE
-          ====================================================== */}
-
+          {/* ================= MOBILE TIMELINE ================= */}
           <div className="d-md-none mt-4">
-
             <div className="position-relative">
-
-              {/* VERTICAL LINE */}
-
               <div
                 className="position-absolute top-0 bottom-0"
                 style={{
@@ -231,28 +192,13 @@ export default function WhyBihar()
                 }}
               />
 
-
               {data.map((item, index) => (
-
-                <div
-                  className="d-flex position-relative mb-4"
-                  key={index}
-                >
-
-                  {/* DOT */}
-
+                <div className="d-flex position-relative mb-4" key={index}>
                   <TimelineDot mobile />
-
-
-                  {/* CARD */}
-
                   <div
                     className="border rounded-2 bg-white ms-3 p-3 flex-grow-1 shadow-sm"
-                    style={{
-                      borderColor: "#eaded6",
-                    }}
+                    style={{ borderColor: "#eaded6" }}
                   >
-
                     <p
                       className="mb-0"
                       style={{
@@ -263,100 +209,60 @@ export default function WhyBihar()
                     >
                       {item.text}
                     </p>
-
                   </div>
-
                 </div>
-
               ))}
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
-
-      {/* =====================================================
-                       WHAT WE ARE DOING
-      ====================================================== */}
-
-      <section
-        className="py-5"
-        style={{
-          backgroundColor: "#faf6f0",
-        }}
-      >
-
+      {/* ================= WHAT WE ARE DOING ================= */}
+      <section style={{ backgroundColor: "#faf6f0" }} className="py-5">
         <div className="container">
-
-          {/* ================= HEADER ================= */}
-
           <div className="mb-4 mb-lg-5">
-
             <h2
-              className="fw-bold mb-2 text-dark"
+              className="fw-bold mb-2"
               style={{
                 fontFamily: 'Georgia, "Times New Roman", serif',
                 fontSize: "clamp(30px, 4vw, 44px)",
                 lineHeight: "1.1",
+                color: "#1a1a1a",
               }}
             >
-              What We Are{" "}
-              <span style={{ color: "#a63828" }}>
-                Doing
-              </span>
+              What We Are <span style={{ color: "#a93627" }}>Doing</span>
             </h2>
 
             <p
               className="fw-semibold mb-0"
               style={{
                 fontSize: "clamp(15px, 1.5vw, 18px)",
-                color: "#493b35",
+                color: "#5a4b45",
               }}
             >
               Six ways the inquiry is being carried out
             </p>
-
           </div>
 
-
-          {/* =====================================================
-                            PROGRAM GRID
-          ====================================================== */}
-
+          {/* PROGRAM GRID */}
           <div className="row g-3 g-lg-4">
-
-            {/* ================= FEATURE CARD ================= */}
-
             <div className="col-12 col-lg-8">
-
               <div
                 className="rounded-2 h-100 p-4 p-md-5 text-white d-flex flex-column justify-content-between"
                 style={{
-                  backgroundColor: "#aa3d2d",
+                  backgroundColor: "#a93627",
                   minHeight: "300px",
                 }}
               >
-
                 <div>
-
-                  <div
-                    className="mb-4"
-                    style={{
-                      fontSize: "28px",
-                    }}
-                  >
+                  <div className="mb-4" style={{ fontSize: "28px" }}>
                     <i className="bi bi-geo-alt"></i>
                   </div>
 
                   <h3
                     className="fw-semibold mb-3"
                     style={{
-                      fontFamily:
-                        'Georgia, "Times New Roman", serif',
+                      fontFamily: 'Georgia, "Times New Roman", serif',
                       fontSize: "clamp(22px, 2.5vw, 30px)",
                     }}
                   >
@@ -369,112 +275,60 @@ export default function WhyBihar()
                       maxWidth: "520px",
                       fontSize: "14px",
                       lineHeight: "1.6",
-                      color: "rgba(255,255,255,0.82)",
+                      color: "rgba(255,255,255,0.85)",
                     }}
                   >
                     Open conversations across all of Bihar&apos;s districts,
-                    gathering firsthand experiences of democracy from
-                    panchayats to city wards.
+                    gathering firsthand experiences of democracy from panchayats
+                    to city wards.
                   </p>
-
                 </div>
 
-
-                {/* ================= STATS ================= */}
-
                 <div className="d-flex flex-wrap gap-4 gap-md-5 mt-5">
-
                   <div>
-                    <div className="fw-bold fs-3">
-                      38
-                    </div>
-
+                    <div className="fw-bold fs-3">38</div>
                     <div
                       className="small"
-                      style={{
-                        color: "rgba(255,255,255,0.75)",
-                      }}
+                      style={{ color: "rgba(255,255,255,0.8)" }}
                     >
                       Districts
                     </div>
                   </div>
 
-
                   <div>
-                    <div className="fw-bold fs-3">
-                      120+
-                    </div>
-
+                    <div className="fw-bold fs-3">120+</div>
                     <div
                       className="small"
-                      style={{
-                        color: "rgba(255,255,255,0.75)",
-                      }}
+                      style={{ color: "rgba(255,255,255,0.8)" }}
                     >
                       Sessions Held
                     </div>
                   </div>
-
                 </div>
-
               </div>
-
             </div>
-
-
-            {/* ================= RIGHT CARDS ================= */}
 
             <div className="col-12 col-lg-4">
-
               <div className="row g-3">
-
                 {programs.slice(0, 2).map((item, index) => (
-
-                  <div
-                    className="col-12"
-                    key={index}
-                  >
-
+                  <div className="col-12" key={index}>
                     <ProgramCard item={item} />
-
                   </div>
-
                 ))}
-
               </div>
-
             </div>
 
-
-            {/* ================= BOTTOM CARDS ================= */}
-
             {programs.slice(2).map((item, index) => (
-
-              <div
-                className="col-12 col-md-6 col-lg-4"
-                key={index}
-              >
-
+              <div className="col-12 col-md-6 col-lg-4" key={index}>
                 <ProgramCard item={item} />
-
               </div>
-
             ))}
-
           </div>
-
         </div>
-
       </section>
-
     </div>
   );
 }
-
-
-/* =========================================================
-                         TIMELINE DOT
-========================================================= */
 
 function TimelineDot({ mobile = false }) {
   return (
@@ -495,17 +349,12 @@ function TimelineDot({ mobile = false }) {
         style={{
           width: "5px",
           height: "5px",
-          backgroundColor: "#b43b29",
+          backgroundColor: "#a93627",
         }}
       />
     </div>
   );
 }
-
-
-/* =========================================================
-                         PROGRAM CARD
-========================================================= */
 
 function ProgramCard({ item }) {
   return (
@@ -516,34 +365,24 @@ function ProgramCard({ item }) {
         borderColor: "#eaded6",
       }}
     >
-
-      {/* ICON */}
-
       <i
         className={`bi ${item.icon}`}
         style={{
-          color: "#b43829",
+          color: "#a93627",
           fontSize: "21px",
         }}
       ></i>
 
-
-      {/* TITLE */}
-
       <h6
         className="fw-bold mt-4 mb-2"
         style={{
-          fontFamily:
-            'Georgia, "Times New Roman", serif',
+          fontFamily: 'Georgia, "Times New Roman", serif',
           fontSize: "15px",
-          color: "#302621",
+          color: "#1a1a1a",
         }}
       >
         {item.title}
       </h6>
-
-
-      {/* DESCRIPTION */}
 
       <p
         className="mb-0"
@@ -555,8 +394,6 @@ function ProgramCard({ item }) {
       >
         {item.description}
       </p>
-
     </div>
-    
   );
 }
